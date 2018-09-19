@@ -17,7 +17,7 @@ let target = 9;
 
 const twoSum = (array, target) => {
   for (var i = 0; i < array.length; i++) {
-    for (var j = 1; j < array.length; j++) {
+    for (var j = i+1; j < array.length; j++) {
       let sum = array[i] +array[j];
       if (sum === target) {
         return [i, j];

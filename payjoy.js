@@ -16,42 +16,42 @@
 // s = "3[a2[c]]", return "accaccacc".
 // s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 
-// const decodeString = string => {
-//     console.log(string)
-// //   console.log("----------------------------------");
-//   let stack1 = string.split("");
-//   console.log(stack1)
-//   let stack2 = [];
-//   let result = "";
-//   let temp = "";
-// // "sd2[f2[e]g]i"
-//   while (stack1.length) {
-//     let lastElem = stack1.pop();
-//     if (stack2.length === 0 && lastElem !== "]" && isNaN(lastElem)) {
-//       result = lastElem.concat(result);
-//     } else if (lastElem == "]") {
+const decodeString = string => {
+    console.log(string)
+//   console.log("----------------------------------");
+  let stack1 = string.split("");
+  console.log(stack1)
+  let stack2 = [];
+  let result = "";
+  let temp = "";
+// "sd2[f2[e]g]i"
+  while (stack1.length) {
+    let lastElem = stack1.pop();
+    if (stack2.length === 0 && lastElem !== "]" && isNaN(lastElem)) {
+      result = lastElem.concat(result);
+    } else if (lastElem == "]") {
     
-//       stack2.push(lastElem);
-//     } else if (lastElem !== "[" && isNaN(lastElem)) {
+      stack2.push(lastElem);
+    } else if (lastElem !== "[" && isNaN(lastElem)) {
         
-//       temp = lastElem.concat(temp);
-//     } else if (lastElem === "[") {
+      temp = lastElem.concat(temp);
+    } else if (lastElem === "[") {
 
-//       stack2.pop();
-//       lastElem = stack1.pop();
+      stack2.pop();
+      lastElem = stack1.pop();
 
-//       if (!isNaN(lastElem)) {
-//         temp = temp.repeat(Number(lastElem));
-//       }
-//       if (stack2.length === 0) {
-//         result = temp.concat(result);
-//         temp = "";
-//       }
-//     }
-//   }
+      if (!isNaN(lastElem)) {
+        temp = temp.repeat(Number(lastElem));
+      }
+      if (stack2.length === 0) {
+        result = temp.concat(result);
+        temp = "";
+      }
+    }
+  }
 
-//   return result;
-// };
+  return result;
+};
 
 // console.log(decodeString('100[leetcode]','leetcode'))
 // console.log(decodeString('4[ab]'), 'abababab')

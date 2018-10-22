@@ -29,3 +29,30 @@ const twoSum = (array, target) => {
 };
 
 console.log(twoSum(nums, target));
+
+
+
+const twoSum2= (array,target)=>{
+
+  let hash={}
+//going to create hash table with the element and its id
+//using a for loop to create the hash 
+for (var i=0; i<array.length; i++){
+  hash[array[i]]=i
+
+}
+
+
+for (var i =0; i<array.length; i++){
+  let complement= target - array[i]
+
+  if (hash[complement] && hash[complement]!==i){
+    return([array[i], complement])
+  }
+}
+//for loop iterate through the array again and check if each element's
+//complement is within the hash and return 
+
+}
+
+console.log(twoSum2(nums,target))
